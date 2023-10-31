@@ -5,6 +5,7 @@ struct WeightedItem {
 
 enum noises{
     NOISE_NONE,
+    NOISE_UNIT,
     NOISE_CLASS,
     NOISE_MAXHP,
     NOISE_POW,

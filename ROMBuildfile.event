@@ -3,6 +3,10 @@
 
 ORG FreeSpace
 
+#define RunDataSize 62
+#include "Definitions/PList Definitions.event"
+#include "Definitions/Tileset Definitions.event"
+
 #include "SkillSystem_FE8/repointedTextTable.event"
 
 #include "Text/InstallTextData.event"
@@ -12,3 +16,7 @@ ORG FreeSpace
 
 #include "SkillSystem_FE8/EngineHacks/_MasterHackInstaller.event"
 #include "Wizardry/CHAX/MasterChaxInstaller.event"
+
+#include "Maps/MasterMapInstaller.event"
+
+#include "Event/TestMap.event"

@@ -1,1 +1,8 @@
 #include "SkillText/SkillText.txt"
+
+## TestDialog
+[MidLeft][LoadEirika]
+Test.[A][X]
+
+## TestText
+Test.[A][X]

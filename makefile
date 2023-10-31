@@ -14,7 +14,7 @@ include $(MAKE)/Tools.mak
 include $(MAKE)/FE-PyTools.mak
 include $(MAKE)/Elucidator.mak
 include $(MAKE)/Text.mak
-#include $(MAKE)/Maps.mak
+include $(MAKE)/Maps.mak
 include $(MAKE)/Tables.mak
 include $(MAKE)/Wizardry.mak
 
@@ -22,7 +22,7 @@ include $(MAKE)/Wizardry.mak
 EA_FLAGS = --nocash-sym
 
 # Rule to build the target ROM
-$(ROM_TARGET): $(EVENT_MAIN) $(EA_CORE) $(TEXT_INSTALLER) $(TABLES_INSTALLER) $(CHAX_INSTALLER)
+$(ROM_TARGET): $(EVENT_MAIN) $(EA_CORE) $(TEXT_INSTALLER) $(TABLES_INSTALLER) $(MAPS_INSTALLER) $(CHAX_INSTALLER)
 	$(NOTIFY_PROCESS)
 	$(MAKE_DIR)
 	@echo Building $(ROM_TARGET).

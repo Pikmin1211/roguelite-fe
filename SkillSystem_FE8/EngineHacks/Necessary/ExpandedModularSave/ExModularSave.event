@@ -142,6 +142,7 @@ gGameSaveChunks:
 	DeclSaveChunk($0680, $0AA8, ESU_SaveGameUnits, ESU_LoadGameUnits, EMS_CHUNK_SAVEUNITS)
 
 	// $1128
+	DeclSaveChunk($1128, RunDataSize, SaveCurrentRunData, LoadCurrentRunData)
 
 	// free up to $1344
 
@@ -199,6 +200,7 @@ gSuspendSaveChunks:
 
 	// ends at $2DC1
 	// free up to $2E78 ($B7 free bytes)
+	DeclSaveChunk($2DC1, RunDataSize, SaveCurrentRunData, LoadCurrentRunData)
 
 	DeclSaveChunk(0, 0, 0, MSu_LoadClaimFlagsFromParentSave) // Load Bonus Claim flags from parent save
 

@@ -24,13 +24,13 @@ int HashByte_N(int number, int noise, int max){
 void SetDebugTacticianName(){
     char* TacticianName = GetTacticianName();
 
-    if (TacticianName[0]){
+    if (TacticianName[0] != 0){
         return;
     }
 
     for (int i = 0; i < 8; ++i){
         TacticianName[i] = NextRN_N(0xFF);
-    };
+    }
 }
 
 int HashByWeight(int number, int noise, const struct WeightedItem* itemList){
