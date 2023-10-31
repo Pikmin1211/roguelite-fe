@@ -59,6 +59,8 @@ extern "C" {
 #include "bmtarget.h"
 #include "bmphase.h"
 #include "bb.h"
+#include "cp_utility.h"
+#include "muctrl.h"
 
 // #define CONST_DATA __attribute__((section(".data")))
 //#define CONST_DATA const
