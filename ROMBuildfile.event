@@ -11,3 +11,4 @@ ORG FreeSpace
 #include "Tables/TableInstaller.event"
 
 #include "SkillSystem_FE8/EngineHacks/_MasterHackInstaller.event"
+#include "Wizardry/CHAX/MasterChaxInstaller.event"
