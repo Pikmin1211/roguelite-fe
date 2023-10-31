@@ -1246,8 +1246,7 @@
 
 .macro draw_character_name_at, tile_x, tile_y
   ldr     r0, [r7, #0xC]    @load unit's pointer
-  ldr     r0, [r0]            @load character pointer
-  ldrh    r0, [r0]        @load name
+  blh     GetNameTextIdForExternUnit
   blh     String_GetFromIndex
   mov     r5, r0
   mov     r0, #0x30

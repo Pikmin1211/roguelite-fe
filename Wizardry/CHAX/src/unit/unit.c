@@ -29,6 +29,7 @@ void UnitInitRandomInventory(struct Unit* unit) {
 
 void UnitInitFromDefinition(struct Unit* unit, const struct UnitDefinition* uDef) {
 	unit->pCharacterData = GetCharacterData(uDef->charIndex);
+	unit->externUnit = 1;
 
 	if (uDef->classIndex)
 		unit->pClassData = GetClassData(uDef->classIndex);

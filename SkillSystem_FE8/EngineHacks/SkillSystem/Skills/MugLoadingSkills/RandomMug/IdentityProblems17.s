@@ -1,23 +1,22 @@
 
 .thumb
 
-push	{r5,r6}
-mov	r6,r0
-mov	r5,r1
-mov	r0,r5
+push	{r4}
+mov	r4,r0
 
 ldr	r3,GetNameTextIdForExternUnit
 mov	r14,r3
 .short	0xF800
 
-mov	r1,r5
-pop	{r5,r6}
-ldr	r2,=#0x800A240
-mov	lr,r2
+ldr	r4,=#0x800A240
+mov	lr,r4
 .short	0xF800
-mov	r1,r0
-ldr	r3,=#0x803498E
-mov	lr,r3
+mov	r6,r0
+mov	r5,r0
+ldr	r4,=#0x8051F86
+mov	lr,r4
+pop	{r4}
+ldr	r4,=#0x2017660
 .short	0xF800
 .align
 .ltorg

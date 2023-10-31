@@ -5,7 +5,7 @@ TOOLS := $(realpath .)/Tools
 EA := $(TOOLS)/EventAssembler
 EA_BUILD := $(EA)/build.sh
 EA_CORE := $(EA)/ColorzCore
-#EA_DEP := $(EA)/ea-dep
+EA_DEP := $(EA)/ea-dep
 EA_TOOLS := $(EA)/Tools
 
 # EA Formatting Suite
@@ -24,3 +24,4 @@ $(EA_CORE) $(COMPRESS) $(LYN) $(PARSEFILE) $(PNG2DMP) $(PORTRAITFORMATTER): $(EA
 
 # Event files
 EVENT_MAIN := ROMBuildfile.event
+#EVENT_DEPENDS := $(shell $(EA_DEP) $(EVENT_MAIN) -I $(EA) --add-missings)

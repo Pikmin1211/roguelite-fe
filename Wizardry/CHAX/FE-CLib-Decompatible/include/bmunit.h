@@ -158,10 +158,15 @@ struct Unit
     /* 31 */ u8 torchDuration : 4;
     /* 31 */ u8 barrierDuration : 4;
 
-    /* 32 */ u8 supports[UNIT_SUPPORT_MAX_COUNT];
+    /* 32 */ u8 supports[1];
+    /* 33 */ u8 _u33;
+    /* 34 */ u16 externUnit;
+    /* 36 */ u8 _u36;
+    /* 37 */ u8 _u37;
+    /* 38 */ u8 unitLeader;
     /* 39 */ s8 supportBits;
-    /* 3A */ u8 _u3A;
-    /* 3B */ u8 _u3B;
+    /* 3A */ u8 mag;
+    /* 3B */ u8 fatigue;
 
     /* 3C */ struct SMSHandle* pMapSpriteHandle;
 

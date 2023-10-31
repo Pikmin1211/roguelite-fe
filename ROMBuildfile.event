@@ -4,8 +4,8 @@
 ORG FreeSpace
 
 #define RunDataSize 62
-#include "Definitions/PList Definitions.event"
-#include "Definitions/Tileset Definitions.event"
+#include "Definitions/PListDefinitions.event"
+#include "Definitions/TilesetDefinitions.event"
 
 #include "SkillSystem_FE8/repointedTextTable.event"
 
@@ -13,6 +13,10 @@ ORG FreeSpace
 
 #include "Tables/TableDefinitions.event"
 #include "Tables/TableInstaller.event"
+
+ALIGN 4
+ExternUnitTables:
+POIN Extern_FE8
 
 #include "SkillSystem_FE8/EngineHacks/_MasterHackInstaller.event"
 #include "Wizardry/CHAX/MasterChaxInstaller.event"
