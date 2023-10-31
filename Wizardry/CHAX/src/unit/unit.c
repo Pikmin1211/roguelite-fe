@@ -1,53 +1,28 @@
 #include "gbafe.h"
-#include "unit/unit.h"
 #include "random/hash.h"
+#include "const/weightedItemList.h"
+#include "unit/unit.h"
+
+void RandomItemForSlot(struct Unit* unit, int slot, int noise, const struct WeightedItem* itemList){
+	int item = HashByWeight(UnitHash(unit), noise, itemList);
+	unit->items[slot] = MakeNewItem(item);
+}
 
 void UnitInitRandomInventory(struct Unit* unit) {
 	UnitClearInventory(unit);
 	const struct ClassData* class = unit->pClassData;
 
 	int slot = 0;
+	int noise = NOISE_ITEM_0;
 
 	for(int i = 0; i < ITYPE_DARK+1; i++){
 		if (slot == UNIT_ITEM_COUNT){
 			break;
 		}
-
 		if (class->baseRanks[i]){
-			switch(i){
-				case ITYPE_SWORD:
-					unit->items[slot] = MakeNewItem(ITEM_SWORD_IRON);
-					slot++;
-					break;
-				case ITYPE_LANCE:
-					unit->items[slot] = MakeNewItem(ITEM_LANCE_IRON);
-					slot++;
-					break;
-				case ITYPE_AXE:
-					unit->items[slot] = MakeNewItem(ITEM_AXE_IRON);
-					slot++;
-					break;
-				case ITYPE_BOW:
-					unit->items[slot] = MakeNewItem(ITEM_BOW_IRON);
-					slot++;
-					break;
-				case ITYPE_STAFF:
-					unit->items[slot] = MakeNewItem(ITEM_STAFF_HEAL);
-					slot++;
-					break;
-				case ITYPE_ANIMA:
-					unit->items[slot] = MakeNewItem(ITEM_ANIMA_FIRE);
-					slot++;
-					break;
-				case ITYPE_LIGHT:
-					unit->items[slot] = MakeNewItem(ITEM_LIGHT_LIGHTNING);
-					slot++;
-					break;
-				case ITYPE_DARK:
-					unit->items[slot] = MakeNewItem(ITEM_DARK_FLUX);
-					slot++;
-					break;
-			}
+			RandomItemForSlot(unit, slot, noise, ItemListList[i]);
+			slot++;
+			noise++;
 		}
 	}
 }

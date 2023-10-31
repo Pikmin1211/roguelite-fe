@@ -1,3 +1,8 @@
+struct WeightedItem {
+    u8 number;
+    u8 weight;
+};
+
 enum noises{
     NOISE_NONE,
     NOISE_CLASS,
@@ -18,3 +23,5 @@ enum noises{
 
 int HashByte_N(int number, int noise, int max);
 void SetDebugTacticianName();
+int HashByWeight(int number, int noise, const struct WeightedItem* itemList);
+int UnitHash(struct Unit* unit);

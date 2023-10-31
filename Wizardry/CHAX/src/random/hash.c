@@ -32,3 +32,23 @@ void SetDebugTacticianName(){
         TacticianName[i] = NextRN_N(0xFF);
     };
 }
+
+int HashByWeight(int number, int noise, const struct WeightedItem* itemList){
+    int hash100 = HashByte_N(number, noise, 100);
+    int index = 0;
+    while (true){
+        const struct WeightedItem weightedItem = itemList[index];
+        hash100 -= weightedItem.weight;
+        if (hash100 < 0){
+            break;
+        }
+        index++;
+    }
+    return itemList[index].number;
+}
+
+int UnitHash(struct Unit* unit) {
+    int hash = unit->xPos + unit->yPos + unit->index;
+    hash += gPlaySt.chapterIndex;
+    return hash;
+}
