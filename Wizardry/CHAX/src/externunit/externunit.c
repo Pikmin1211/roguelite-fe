@@ -10,7 +10,12 @@ void ProcessTurnSupportExp(void){
 }
 
 const struct CharacterData* GetExternUnitFromUnit(struct Unit* unit){
-    return &ExternUnitTables[EXTERN_TABLE(unit->externUnit)][EXTERN_ID(unit->externUnit)];
+    switch(UNIT_FACTION(unit)){
+        case FACTION_BLUE:
+            return &ExternUnitTables[EXTERN_TABLE(unit->externUnit)][EXTERN_ID(unit->externUnit)];
+        default:
+            return unit->pCharacterData;
+        }
 } 
 
 int GetNameTextIdForExternUnit(struct Unit* unit) {

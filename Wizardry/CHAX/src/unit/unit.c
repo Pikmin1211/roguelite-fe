@@ -2,6 +2,18 @@
 #include "random/hash.h"
 #include "const/weightedItemList.h"
 #include "unit/unit.h"
+#include "externunit/externunit.h"
+
+void SetUnitRandomExternUnit(struct Unit* unit){
+	switch(UNIT_FACTION(unit)){
+		case FACTION_BLUE:
+			int number = HashByte_N(UnitHash(unit), NOISE_UNIT, sizeof(FE8CharacterList));
+			unit->externUnit = FE8CharacterList[number] | (GAME_FE8 << 8);
+			break;
+		default:
+			break;
+	}
+}
 
 void RandomItemForSlot(struct Unit* unit, int slot, int noise, const struct WeightedItem* itemList){
 	int item = HashByWeight(UnitHash(unit), noise, itemList);
@@ -29,7 +41,9 @@ void UnitInitRandomInventory(struct Unit* unit) {
 
 void UnitInitFromDefinition(struct Unit* unit, const struct UnitDefinition* uDef) {
 	unit->pCharacterData = GetCharacterData(uDef->charIndex);
-	unit->externUnit = 1;
+	
+	GenUnitDefinitionFinalPosition(uDef, (u8*)&unit->xPos, (u8*)&unit->yPos, FALSE);
+	SetUnitRandomExternUnit(unit);
 
 	if (uDef->classIndex)
 		unit->pClassData = GetClassData(uDef->classIndex);
@@ -38,7 +52,7 @@ void UnitInitFromDefinition(struct Unit* unit, const struct UnitDefinition* uDef
 
 	unit->level = uDef->level;
 
-	GenUnitDefinitionFinalPosition(uDef, (u8*)&unit->xPos, (u8*)&unit->yPos, FALSE);
+	//GenUnitDefinitionFinalPosition(uDef, (u8*)&unit->xPos, (u8*)&unit->yPos, FALSE);
 
 	if (UNIT_IS_GORGON_EGG(unit)) {
 		int i;
